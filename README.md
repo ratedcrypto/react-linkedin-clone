@@ -1,3 +1,9 @@
+# React Firebase Linkedin Clone
+
+A simple fullstack Linkedin clone with React, Redux, Material UI and Firebase.
+
+[Live demo](https://react-firebase-c665f.web.app)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
