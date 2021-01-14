@@ -11,7 +11,7 @@ import InputOption from './InputOption';
 import Post from './Post';
 import { db } from '../firebase/firebase';
 import firebase from 'firebase';
-import FlipMove from 'react-flip-move';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function Feed() {
   const user = useSelector(selectUser);
@@ -116,25 +116,35 @@ function Feed() {
           />
         </div>
       </div>
-      <FlipMove>
+      <TransitionGroup className="feeds">
         {posts.map(
           ({
             id,
             data: { name, description, message, photUrl, likeCount },
           }) => (
-            <Post
+            <CSSTransition
               key={id}
-              id={id}
-              name={name}
-              description={description}
-              message={message}
-              photUrl={photUrl}
-              likeCount={likeCount}
-              increaseLikeCount={increaseLikeCount}
-            />
+              timeout={500}
+              classNames={{
+                enter: 'feed__enter',
+                enterActive: 'feed__enter__active',
+                exit: 'feed__exit',
+                exitActive: 'feed__exit__active',
+              }}
+            >
+              <Post
+                id={id}
+                name={name}
+                description={description}
+                message={message}
+                photUrl={photUrl}
+                likeCount={likeCount}
+                increaseLikeCount={increaseLikeCount}
+              />
+            </CSSTransition>
           )
         )}
-      </FlipMove>
+      </TransitionGroup>
     </div>
   );
 }

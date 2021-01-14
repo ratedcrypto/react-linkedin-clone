@@ -41,3 +41,23 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.feed__enter {
+  opacity: 0;
+}
+
+.feed__enter__active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 500ms ease-in;
+}
+
+.feed__exit {
+  opacity: 1;
+}
+
+.feed__exit__active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 500ms ease-in;
+}
